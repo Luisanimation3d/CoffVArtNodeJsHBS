@@ -24,6 +24,13 @@ app.get('/login', (req, res) => {
     res.render('login');
 })
 
+app.get('/clientes', (req, res) => {
+    res.render('clientes');
+})
+app.get('/proveedores', (req, res) => {
+    res.render('proveedores');
+})
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 })
