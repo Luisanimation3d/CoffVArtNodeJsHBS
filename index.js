@@ -16,8 +16,12 @@ app.set('view engine', 'hbs');
 
 hbs.registerPartials(path.join(__dirname, '/public/views/partials'));
 
-app.get('/', (req, res) => {
+app.get('/', (req,res) => {
     res.render('index');
+})
+
+app.get('/login', (req, res) => {
+    res.render('login');
 })
 
 app.listen(port, () => {
