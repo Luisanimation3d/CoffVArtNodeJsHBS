@@ -15,7 +15,7 @@
 <body>
     <nav  class="navbar navbar-expand-lg navbar-light p-3"  id="menu">
         <div class="container">
-          <a class="navbar-brand" href="index.hbs">
+          <a class="navbar-brand" href="main">
               <span class="fs-5 text-success fw-bold">Burdeo</span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,13 +37,12 @@
                 <a class="nav-link" href="empaquetado">Empaquetado</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="productos">Productos</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="contratos" style="color:#198754">Contratos</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="email" placeholder="Escribe..." aria-label="Escribe...">
-              <button class="btn btn-success btn-success-outline-success" type="button">Buscar</button>
-            </form>
           </div>
 
         </div>
@@ -70,10 +69,16 @@
                 <label for="selectAll"></label>
               </span>
             </th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Teléfono</th>
+            <th>Numero de Contrato</th>
+            <th>Empresa</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Frecuencia de pago</th>
+            <th>Producto</th>
+            <th>Medida</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>IVA</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -85,10 +90,38 @@
                 <label for="checkbox1"></label>
               </span>
             </td>
-            <td>Thomas Hardy</td>
-            <td>Hardy</td>
-            <td>thomashardy@mail.com</td>
-            <td>(171) 555-2222</td>
+            <td>1</td>
+            <td>ColCafé</td>
+            <td>19/05/2023</td>
+            <td>19/05/2023</td>
+            <td>Mensual</td>
+            <td>Café en grano</td>
+            <td>1 Kg</td>
+            <td>1000</td>
+            <td>$1.000.0000</td>
+            <td>$19.000</td>
+            <td>
+              <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+              <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="custom-checkbox">
+                <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                <label for="checkbox1"></label>
+              </span>
+            </td>
+            <td>2</td>
+            <td>ColCafé</td>
+            <td>19/05/2023</td>
+            <td>19/05/2023</td>
+            <td>Mensual</td>
+            <td>Café en grano</td>
+            <td>1 Kg</td>
+            <td>1000</td>
+            <td>$1.000.0000</td>
+            <td>$19.000</td>
             <td>
               <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
               <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
@@ -99,31 +132,55 @@
     </div>
   </div>
 
-  <!-- Agregar empleado -->
+  <!-- Agregar Contrato -->
   <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <form>
           <div class="modal-header">						
-            <h4 class="modal-title">Agregar cliente</h4>
+            <h4 class="modal-title">Agregar contrato</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
             <div class="form-group">
-              <label>Nombre</label>
+              <label>Numero de Contrato</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Empresa</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Apellidos</label>
+              <label>Fecha inicio</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Fecha fin</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Frecuencia de pago</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" required>
+              <label>Producto</label>
+              <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
+              <label>Medida</label>
               <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Cantidad</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Total</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>IVA</label>
+              <input type="number" class="form-control" required>
             </div>				
           </div>
           <div class="modal-footer">
@@ -140,25 +197,49 @@
       <div class="modal-content">
         <form>
           <div class="modal-header">						
-            <h4 class="modal-title">Editar cliente</h4>
+            <h4 class="modal-title">Editar contrato</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
             <div class="form-group">
-              <label>Nombre</label>
+              <label>Numero de Contrato</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Empresa</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Apellidos</label>
+              <label>Fecha inicio</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Fecha fin</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Frecuencia de pago</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" required>
+              <label>Producto</label>
+              <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
+              <label>Medida</label>
               <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Cantidad</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Total</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>IVA</label>
+              <input type="number" class="form-control" required>
             </div>				
           </div>
           <div class="modal-footer">
@@ -176,11 +257,11 @@
       <div class="modal-content">
         <form>
           <div class="modal-header">						
-            <h4 class="modal-title">Eliminar cliente</h4>
+            <h4 class="modal-title">Eliminar contrato</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
-            <p>¿Estás seguro de que deseas eliminar este cliente?</p>
+            <p>¿Estás seguro de que deseas eliminar este contrato?</p>
             <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
           </div>
           <div class="modal-footer">

@@ -34,6 +34,10 @@ app.get('/contratos', (req, res) => {
     res.render('contratos');
 })
 
+app.get('/productos', (req, res) => {
+    res.render('productos');
+})
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 })

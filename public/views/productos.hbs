@@ -40,7 +40,7 @@
                 <a class="nav-link" href="productos">Productos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contratos">Contratos</a>
+                <a class="nav-link" href="contratos" style="color:#198754">Contratos</a>
               </li>
             </ul>
           </div>
@@ -52,11 +52,11 @@
       <div class="table-title">
         <div class="row">
           <div class="col-sm-6">
-            <h2>Lista de Clientes</h2>
+            <h2>Lista de Productos</h2>
           </div>
           <div class="col-sm-6">
-            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Cliente</span></a>
-            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar Cliente</span></a>						
+            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Producto</span></a>
+            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar Producto</span></a>						
           </div>
         </div>
       </div>
@@ -69,11 +69,16 @@
                 <label for="selectAll"></label>
               </span>
             </th>
+            <th>Id</th>
             <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Acciones</th>
+            <th>Precio</th>
+            <th>Stock Minimo</th>
+            <th>Stock Máximo</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Fecha de creación</th>
+            <th>Estado</th>
+            <th>Descripción</th>
           </tr>
         </thead>
         <tbody>
@@ -84,45 +89,75 @@
                 <label for="checkbox1"></label>
               </span>
             </td>
-            <td>Thomas Hardy</td>
-            <td>Hardy</td>
-            <td>thomashardy@mail.com</td>
-            <td>(171) 555-2222</td>
+            <td id="idPv">1</td>
+            <td>Café Oscuro para latte</td>
+            <td>$25.000</td>
+            <td>25 U</td>
+            <td>150 U</td>
+            <td>Café en grano</td>
+            <td>76</td>
+            <td>19/05/2023</td>
+            <td>Activo</td>
+            <td>Café oscuro para preparación de cafe latte...</td>
             <td>
               <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
               <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
             </td>
-          </tr>					
+          </tr>				
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- Agregar empleado -->
+  <!-- Agregar Contrato -->
   <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form>
+        <form id="productoform">
           <div class="modal-header">						
-            <h4 class="modal-title">Agregar cliente</h4>
+            <h4 class="modal-title">Agregar Producto</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
             <div class="form-group">
-              <label>Nombre</label>
+              <label>Id del Producto</label>
+              <input type="number"  id="idP" name="idP" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Nombre del Producto</label>
+              <input type="text" id="nombreP" name="nombreP" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Precio</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Stock Minimo</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Stock Máximo</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Categoría</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Apellidos</label>
+              <label>Cantidad</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Fecha de creación</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Estado</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label>Teléfono</label>
-              <input type="text" class="form-control" required>
+              <label>Descripción</label>
+              <textarea name="" class="form-control" id="" cols="15" rows="10"></textarea>
             </div>				
           </div>
           <div class="modal-footer">
@@ -139,25 +174,49 @@
       <div class="modal-content">
         <form>
           <div class="modal-header">						
-            <h4 class="modal-title">Editar cliente</h4>
+            <h4 class="modal-title">Editar Producto</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
+            <div class="form-group">
+              <label>Id del Producto</label>
+              <input type="number" class="form-control" required>
+            </div>
             <div class="form-group">
               <label>Nombre</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Apellidos</label>
+              <label>Precio</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Stock Minimo</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Stock Máximo</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Categoría</label>
               <input type="text" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" required>
+              <label>Cantidad</label>
+              <input type="number" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
+              <label>Fecha de creación</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Estado</label>
               <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Descripción</label>
+              <textarea name="" id="" class="form-control" cols="15" rows="10"></textarea>
             </div>				
           </div>
           <div class="modal-footer">
@@ -175,11 +234,11 @@
       <div class="modal-content">
         <form>
           <div class="modal-header">						
-            <h4 class="modal-title">Eliminar cliente</h4>
+            <h4 class="modal-title">Eliminar contrato</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">					
-            <p>¿Estás seguro de que deseas eliminar este cliente?</p>
+            <p>¿Estás seguro de que deseas eliminar este contrato?</p>
             <p class="text-warning"><small>Esta acción no se puede deshacer.</small></p>
           </div>
           <div class="modal-footer">
@@ -199,5 +258,6 @@
       $('[data-toggle="tooltip"]').tooltip();
     });
   </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
